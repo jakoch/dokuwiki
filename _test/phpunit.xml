@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
 <phpunit
-    bootstrap="bootstrap.php"
-    convertNoticesToExceptions="false"
-    colors="true"
-    stderr="true"
-    >
+    backupGlobals               = "false"
+    backupStaticAttributes      = "false"
+    colors                      = "true"
+    convertErrorsToExceptions   = "true"
+    convertNoticesToExceptions  = "true"
+    convertWarningsToExceptions = "true"
+    processIsolation            = "false"
+    stopOnFailure               = "false"
+    strict                      = "false"
+    syntaxCheck                 = "false"
+    verbose                     = "true"
+    stderr                      = "true"
+    bootstrap                   = "bootstrap.php">
 
     <testsuites>
         <testsuite name="DokuWiki Tests">
@@ -29,5 +38,10 @@
             </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-clover" target="../build/logs/clover.xml" />
+        <log type="coverage-text" target="php://stdout" showOnlySummary="true" />
+    </logging>
 
 </phpunit>
